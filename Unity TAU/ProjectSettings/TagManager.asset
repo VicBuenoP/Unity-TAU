@@ -53,3 +53,6 @@ TagManager:
   - name: Eyes, lights
     uniqueID: 3267793291
     locked: 0
+  - name: Texts
+    uniqueID: 727705873
+    locked: 0

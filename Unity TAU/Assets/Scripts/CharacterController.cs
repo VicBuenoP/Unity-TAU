@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour {
     public bool alive = true;
     private bool running = false;
 
-    public Transform checkGround;
+    public Transform checkGround, checkFront;
     private float checkRadio = 0.07f;
     public LayerMask groundMask, deathMask;
 
@@ -19,6 +19,7 @@ public class CharacterController : MonoBehaviour {
     public Animator animator;
 
     public int points = 0;
+    //public Text;
 
     void Awake() {
         animator = GetComponent<Animator>();
@@ -70,11 +71,14 @@ public class CharacterController : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
         }
-        inGround = Physics2D.OverlapCircle(checkGround.position, checkRadio, groundMask);
+        inGround = (Physics2D.OverlapCircle(checkGround.position, checkRadio, groundMask) || Physics2D.OverlapCircle(checkFront.position, checkRadio, groundMask));
         animator.SetBool("InGround", inGround);
         animator.SetBool("Running", running);
-        alive = !(Physics2D.OverlapCircle(checkGround.position, checkRadio, deathMask));
+        if(alive)
+        {
+            points++;
+            alive = !(Physics2D.OverlapCircle(checkGround.position, checkRadio, deathMask));
+        }
         animator.SetBool("Alive", alive);
-        if (alive) points++;
     }
 }
