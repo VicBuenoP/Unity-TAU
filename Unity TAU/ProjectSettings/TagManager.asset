@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Death
   - 
   - 
   - 
@@ -38,12 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 3441034981
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Cat
     uniqueID: 1373949745
     locked: 0
-  - name: BG
-    uniqueID: 3441034981
+  - name: Super Cat
+    uniqueID: 3341625549
+    locked: 0
+  - name: Eyes, lights
+    uniqueID: 3267793291
     locked: 0
