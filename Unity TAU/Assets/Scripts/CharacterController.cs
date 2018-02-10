@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour {
 
@@ -19,10 +20,12 @@ public class CharacterController : MonoBehaviour {
     public Animator animator;
 
     public int points = 0;
+    public GameObject finalPoints;
     //public Text;
 
     void Awake() {
         animator = GetComponent<Animator>();
+        DontDestroyOnLoad(finalPoints);
     }
 
     // Use this for initialization
@@ -74,11 +77,26 @@ public class CharacterController : MonoBehaviour {
         inGround = (Physics2D.OverlapCircle(checkGround.position, checkRadio, groundMask) || Physics2D.OverlapCircle(checkFront.position, checkRadio, groundMask));
         animator.SetBool("InGround", inGround);
         animator.SetBool("Running", running);
-        if(alive)
+        if (alive)
         {
             points++;
             alive = !(Physics2D.OverlapCircle(checkGround.position, checkRadio, deathMask));
         }
+        else
+        {
+            NotificationCenter.DefaultCenter().PostNotification(this, "Dead");
+            //StartCoroutine(MyCoroutine()); //Se inserta la rutina para la pantalla de MUERTE en el controlador del pj
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
+
         animator.SetBool("Alive", alive);
     }
+
+    //IEnumerator MyCoroutine()
+    //{
+    //    yield return new WaitForSeconds(4.0f);
+    //    SceneManager.LoadScene("DeathScene");
+    //    //image.SetActive(true);
+    //}
 }

@@ -9,18 +9,24 @@ public class Platform : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
+        //NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
+        NotificationCenter.DefaultCenter().AddObserver(this, "Dead");
     }
 
-    void Begin(Notification notif)
+    //void Begin(Notification notif)
+    //{
+    //    begun = true;
+    //    GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
+    //}
+
+    void Dead(Notification notif)
     {
-        begun = true;
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     // Update is called once per frame
     void Update () {
-        if (begun)
+        //if (begun)
             GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
     }
 }
