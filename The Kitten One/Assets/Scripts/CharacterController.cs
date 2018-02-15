@@ -62,12 +62,9 @@ public class CharacterController : MonoBehaviour {
         else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (speed > 0) speed = -speed; //Si va hacia la izquierda, cambia su velocidad a la derecha
-            if (!running)
-            {
-                running = true;
-                animator.SetBool("Running", running);
-                //NotificationCenter.DefaultCenter().PostNotification(this, "Begin"); <= Don't start when you go left!
-            }
+            if (!running) running = true;
+            else running = false;
+            animator.SetBool("Running", running);
         }
         #endregion
         //running = false;
