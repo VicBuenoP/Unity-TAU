@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CharacterController : MonoBehaviour {
+public class CharacterControllerScript : MonoBehaviour {
 
     #region Variables
     private bool inGround = true;
@@ -51,7 +51,7 @@ public class CharacterController : MonoBehaviour {
         #region MOVIMIENTO: Los obstáculos se moverán como si corriera, pero con estos algoritmos simulamos aceleración y deceleración.
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if(speed < 0) speed = -speed; //Si va hacia la derecha, cambia su velocidad a la izquierda
+            if(speed < 0) speed = -speed; //Si va hacia la izquierda, cambia su velocidad a la derecha, ACELERA
             if(!running)
             {
                 running = true;
@@ -61,10 +61,13 @@ public class CharacterController : MonoBehaviour {
         }
         else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (speed > 0) speed = -speed; //Si va hacia la izquierda, cambia su velocidad a la derecha
-            if (!running) running = true;
-            else running = false;
-            animator.SetBool("Running", running);
+            if (speed > 0) speed = -speed; //Si va hacia la derecha, cambia su velocidad a la izquierda, DECELERA
+            if (!running)
+            {
+                running = true;
+                animator.SetBool("Running", running);
+                //NotificationCenter.DefaultCenter().PostNotification(this, "Begin");
+            }
         }
         #endregion
         //running = false;
@@ -89,10 +92,9 @@ public class CharacterController : MonoBehaviour {
         {
             //NotificationCenter.DefaultCenter().PostNotification(this, "Dead");
             //StartCoroutine(MyCoroutine()); //Se inserta la rutina para la pantalla de MUERTE en el controlador del pj
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            GetComponent<Rigidbody2D>().gravityScale = 0;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-3, GetComponent<Rigidbody2D>().velocity.y);
         }
-
+        
         animator.SetBool("Alive", alive);
     }
 

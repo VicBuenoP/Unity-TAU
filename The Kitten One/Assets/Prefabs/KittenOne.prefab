@@ -479,7 +479,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762628901834896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 2.04, z: -0.001953125}
+  m_LocalPosition: {x: 2.06, y: 2.11, z: -0.001953125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4667004141462288}
@@ -670,13 +670,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 1636172941339280}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3696cbed37656d04c9e552e58a08a6a9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.14728552, y: 0.10882068}
+  m_Offset: {x: 0.14005229, y: -0.010528147}
   serializedVersion: 2
-  m_Radius: 0.2597236
+  m_Radius: 0.34290618
 --- !u!58 &58954164841658924
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -746,7 +746,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   jumpForce: 3
-  speed: 1.5
+  speed: 2
   animator: {fileID: 95138362438224998}
   points: 0
   finalPoints: {fileID: 0}
