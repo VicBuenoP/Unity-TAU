@@ -56,7 +56,7 @@ public class CharacterControllerScript : MonoBehaviour {
             {
                 running = true;
                 animator.SetBool("Running", running);
-                //NotificationCenter.DefaultCenter().PostNotification(this, "Begin");
+                NotificationCenter.DefaultCenter().PostNotification(this, "Begin");
             }
         }
         else if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
@@ -90,7 +90,7 @@ public class CharacterControllerScript : MonoBehaviour {
         }
         else
         {
-            //NotificationCenter.DefaultCenter().PostNotification(this, "Dead");
+            NotificationCenter.DefaultCenter().PostNotification(this, "Dead");
             //StartCoroutine(MyCoroutine()); //Se inserta la rutina para la pantalla de MUERTE en el controlador del pj
             GetComponent<Rigidbody2D>().velocity = new Vector2(-3, GetComponent<Rigidbody2D>().velocity.y);
         }
