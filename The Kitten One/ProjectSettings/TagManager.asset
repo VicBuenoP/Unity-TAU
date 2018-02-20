@@ -41,12 +41,15 @@ TagManager:
   - name: Background
     uniqueID: 783150833
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Kitten
     uniqueID: 475850723
     locked: 0
   - name: Eyes
     uniqueID: 2923062243
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Paws
+    uniqueID: 3834708889
     locked: 0

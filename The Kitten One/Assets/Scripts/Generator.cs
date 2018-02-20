@@ -13,7 +13,7 @@ public class Generator : MonoBehaviour {
 	void Start () {
         Generate();
         //NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
-        /**NotificationCenter.DefaultCenter().AddObserver(this, "Dead");**/
+        NotificationCenter.DefaultCenter().AddObserver(this, "Dead");
     }
 
     //void Begin(Notification notif)
@@ -21,12 +21,12 @@ public class Generator : MonoBehaviour {
     //    Generate();
     //}
 
-    /**
+    
     void Dead(Notification notif)
     {
 
     }
-    **/
+    
 
     // Update is called once per frame
     void Update() {
