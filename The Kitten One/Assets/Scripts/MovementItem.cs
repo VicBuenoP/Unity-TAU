@@ -6,20 +6,23 @@ public class MovementItem : MonoBehaviour
 {
 
     public float speed = 1f;
-    private bool begun = false;
+    //private bool begun = false;
 
     // Use this for initialization
     void Start()
     {
-        NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
+        #region Only when begins...
+        /**The generated items DOESNT move**/
+        //NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
+        #endregion
         NotificationCenter.DefaultCenter().AddObserver(this, "Dead");
     }
 
-    void Begin(Notification notif)
-    {
-        begun = true;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
-    }
+    //void Begin(Notification notif)
+    //{
+    //    begun = true;
+    //    GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
+    //}
 
 
     void Dead(Notification notif)
@@ -31,7 +34,7 @@ public class MovementItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (begun)
+        //if (begun)
             GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, GetComponent<Rigidbody2D>().velocity.y);
     }
 }

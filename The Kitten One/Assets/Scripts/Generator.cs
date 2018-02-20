@@ -11,15 +11,15 @@ public class Generator : MonoBehaviour {
     
     // Use this for initialization
 	void Start () {
-        //Generate();
-        NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
+        Generate();
+        //NotificationCenter.DefaultCenter().AddObserver(this, "Begin");
         NotificationCenter.DefaultCenter().AddObserver(this, "Dead");
     }
 
-    void Begin(Notification notif)
-    {
-        Generate();
-    }
+    //void Begin(Notification notif)
+    //{
+    //    Generate();
+    //}
 
     
     void Dead(Notification notif)

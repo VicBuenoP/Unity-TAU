@@ -92,7 +92,7 @@ public class CharacterControllerScript : MonoBehaviour {
         {
             NotificationCenter.DefaultCenter().PostNotification(this, "Dead");
             //StartCoroutine(MyCoroutine()); //Se inserta la rutina para la pantalla de MUERTE en el controlador del pj
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-3, GetComponent<Rigidbody2D>().velocity.y);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, GetComponent<Rigidbody2D>().velocity.y);
         }
         
         animator.SetBool("Alive", alive);
